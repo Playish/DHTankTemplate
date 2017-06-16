@@ -38,7 +38,7 @@ public class PlayerJump : MonoBehaviour
     {
         jumpTimer -= Time.deltaTime;
 
-		if(playishInput.buttona)
+		if(playishInput.buttona && jumpTimer <= 0f)
         {
             Jump();
         }

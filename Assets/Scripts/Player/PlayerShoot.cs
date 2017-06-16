@@ -45,6 +45,18 @@ public class PlayerShoot : MonoBehaviour
 
             fireRate = fireRateReset;
         }
+
+        if(playishInput.buttonb)
+        {
+            FireProjectile();
+
+            if (shootEffect != null)
+            {
+                SpawnShootEffect();
+            }
+
+            fireRate = fireRateReset;
+        }
 	}
 
     void FireProjectile()
