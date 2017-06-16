@@ -13,7 +13,7 @@ public class Mine : MonoBehaviour
 
     bool isTriggered = false;
 
-    // Use this for initialization
+    // Is only called at the start of the game
     void Start()
     {
 		
@@ -38,14 +38,14 @@ public class Mine : MonoBehaviour
 
             if(mineExplosionEffect != null)
             {
-                SpawnExposionEffect();
+                SpawnExplosionEffect();
             }
 
             Destroy(this.gameObject);
         }
     }
 
-    void SpawnExposionEffect()
+    void SpawnExplosionEffect()
     {
         GameObject shot = (GameObject)Instantiate(mineExplosionEffect);
         Vector3 spawnPos = new Vector3(transform.position.x, transform.position.y, transform.position.z);

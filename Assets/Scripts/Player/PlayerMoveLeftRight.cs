@@ -18,6 +18,7 @@ public class PlayerMoveLeftRight : MonoBehaviour
 
     Player player;
 
+    // Is called before Start
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -25,6 +26,7 @@ public class PlayerMoveLeftRight : MonoBehaviour
         player = GetComponent<Player>();
     }
 
+    // Is only called at the start of the game
     private void Start()
     {
         
@@ -69,6 +71,16 @@ public class PlayerMoveLeftRight : MonoBehaviour
             if (playishInput.joystick.x != 0f)
             {
                 rb.AddForce(transform.right * (movementSpeed * playishInput.joystick.x) * Time.fixedDeltaTime);
+
+                if(playishInput.joystick.x > 0f)
+                {
+                    transform.localRotation = Quaternion.Euler(0, 0, 0);
+                }
+
+                if (playishInput.joystick.x < 0f)
+                {
+                    transform.localRotation = Quaternion.Euler(0, 180, 0);
+                }
             }
         }
     }

@@ -18,6 +18,7 @@ public class PlayerJump : MonoBehaviour
 
     float jumpTimerReset;
 
+    // Is called before Start
     private void Awake()
     {
         player = GetComponent<Player>();
@@ -25,16 +26,17 @@ public class PlayerJump : MonoBehaviour
         playishInput = GetComponent<PlayishInput>();
     }
 
-    // Use this for initialization
+    // Is only called at the start of the game
     void Start()
     {
         jumpTimerReset = jumpTimer;
+        jumpTimer = 0f; // Makes sure the player can jump at the start of the game
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate()
+	void Update()
     {
-        jumpTimer -= Time.fixedDeltaTime;
+        jumpTimer -= Time.deltaTime;
 
 		if(playishInput.buttona)
         {
